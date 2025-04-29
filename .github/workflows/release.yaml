@@ -7,7 +7,6 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
     - uses: actions/checkout@v4
-
     - name: Parse version info from tag
       run: |
         # GITHUB_REF is like refs/tags/v2.3.5, so strip the first 11 chars
@@ -19,7 +18,6 @@ jobs:
         echo "version_major=$MAJOR" >> $GITHUB_ENV
         echo "version_minor=$MINOR" >> $GITHUB_ENV
         echo "version_patch=$PATCH" >> $GITHUB_ENV
-
     - uses: docker/login-action@v3
       with:
         registry: ghcr.io
